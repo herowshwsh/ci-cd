@@ -1,0 +1,30 @@
+name: deploy
+
+on:
+    push:
+        branches: [main]
+        paths-ignore:
+            -README.md
+      
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Build
+              uses: action/setup-node@master
+              with:
+                node-version: "20.x"
+            - run: npm install
+            - run: npm run build
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                branch: gh-pages
+                publish_dir: ./dist
+                github_token: ${{secrets.CI_CD_DOME}}
+                username: ${{secrets.wsh821}}
+                user_email: ${{secrets.15713935339@163.com}}
+                commit_message: 自动部署
