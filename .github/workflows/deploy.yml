@@ -25,6 +25,6 @@ jobs:
                 branch: gh-pages
                 publish_dir: ./dist
                 github_token: ${{secrets.CI_CD_DOME}}
-                username: ${{secrets.wsh821}}
-                user_email: ${{secrets.15713935339@163.com}}
+                username: ${{secrets.MY_USER_NAME}}
+                user_email: ${{secrets.MY_USER_EMAIL}}
                 commit_message: 自动部署
