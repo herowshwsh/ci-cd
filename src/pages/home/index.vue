@@ -1,24 +1,34 @@
 <template>
   <div class="home">
-    <div>这是关于CI/CD关于在github上的部署模版</div>
-
-    <div>具体可以参考.github的文件下的配置</div>
+    <header>
+      <!-- <a @click="handleLinkMy('/')">我</a> -->
+      <a @click="handleLinkMy('/CI-CD')">CI/CD部署</a>
+    </header>
     <div>
-      <a
-        href="https://cloud.tencent.com/developer/article/2439182?policyId=1003"
-        >相关解决配置文档</a
-      >
+      <router-view />
     </div>
   </div>
 </template>
+<script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+const handleLinkMy = (path) => {
+  router.push({ path });
+};
+</script>
 <style lang="less" scoped>
-.home {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-   
+header {
+  width: 100%;
+  height: 40px;
+  background: rgb(41, 151, 229);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: white;
+    cursor: pointer;
+    margin-right: 30px;
+  }
 }
 </style>
